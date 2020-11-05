@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let str = `
+    <ul>
+      <li>
+        <a>肖生克的救赎</a>
+        <p>上映日期：1994-07-06</p>
+      </li>
+      <li>
+        <a>7777777</a>
+        <p>上映日期：2000-07-06</p>
+      </li>
+    </ul>
+  `
+
+  const reg = /<li>.*?<a>(.*?)<\/a>.*?<p>(.*?)<\/p>/sg; // match必须加   g
+
+  const result = str.matchAll(reg)
+  console.log(result);
+  // 可以 for...of 遍历或 ...扩展
+  console.log([...result]) // 直接拿结果了
+  for(let v of result) {
+    console.log(v);
+  }
+</script>
+</body>
+</html>

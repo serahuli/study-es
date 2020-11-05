@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 大整型
+   let n = 444n;
+   console.log(n, typeof n) // 444n bigint
+
+  let m = 123;
+  console.log(BigInt(m)); // 123n
+  // BigInt里面的参数不可以是小数
+
+  // 用来作大数值运算
+  // Number的最大安全整数
+  let max = Number.MAX_SAFE_INTEGER;
+  console.log(max); // 是一个数字 // 9007199254740991
+  console.log(max + 1); // 9007199254740992
+  console.log(max + 2); // 9007199254740992
+  console.log(max + 3); // 9007199254740994
+
+  // BigInt不能和普通整数作运算
+  console.log(BigInt(max) + BigInt(1)); // 9007199254740992n
+  console.log(BigInt(max) + BigInt(2)); // 9007199254740993n
+  console.log(BigInt(max) + BigInt(3)); // 9007199254740994n
+</script>
+</body>
+</html>

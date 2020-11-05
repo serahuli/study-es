@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 手机
+  // ES5
+  function Phone(brand, price) {
+    this.brand = brand;
+    this.price = price;
+  }
+
+  Phone.prototype.call = function () {
+    console.log('i can sing');
+  }
+
+  // 智能手机
+  function SmartPhone(brand, price, color, size) {
+    Phone.call(this, brand, price);
+    this.color = color;
+    this.size = size;
+  }
+
+  SmartPhone.prototype = new Phone();
+  SmartPhone.prototype.constructor = SmartPhone;
+
+  // 声明子类方法
+  SmartPhone.prototype.photo = function () {
+    console.log('i can take a photo');
+  }
+  SmartPhone.prototype.playGame = function () {
+    console.log('i can play games');
+  }
+
+  const chuizi = new SmartPhone('chuizi', 2000, 'black', 5.5);
+  console.log(chuizi);
+</script>
+</body>
+</html>

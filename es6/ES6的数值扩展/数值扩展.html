@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 0 Number.EPSILON 是 Number 的一个属性，
+  // 表示一个很小的数，大概是 2.22乘以10的负16次方
+  // 表示 js的最小精度
+  // 比较 a 与 b , 如果a 与 b 的差的绝对值小于这个数值，可以认为相等。
+  // 主要 用在浮点数运算
+  console.log(0.1 + 0.2 === 0.3); // false
+  function equals(a, b) {
+    if(Math.abs(a - b) < Number.EPSILON) return true
+  }
+
+  console.log(equals(0.1 + 0.2, 0.3)); // true
+
+
+  // 1. 二进制与八进制
+  let b = 0b1010;
+  console.log(b); // 二进制 10
+  let o = 0o777;
+  console.log(o); // 八进制 511
+  let d = 100;
+  console.log(d); // 十进制 100
+  let x = 0xff;
+  console.log(x); // 十六进制 255
+
+  // 3. 检查一个数字是否有限
+  console.log(Number.isFinite(100)) // true
+  console.log(Number.isFinite(Infinity)) // false
+
+  // 4. 检查是不是 NaN
+  console.log(Number.isNaN(NaN)); // true
+
+  // 5. 格式化 ===== 字符串转整数
+  console.log(Number.parseInt('788888dijidjeide222')); // 7888888
+  console.log(Number.parseFloat('788.888dijidjeide222')); // 788.888
+
+  // 6. 是否为整数
+  console.log(Number.isInteger(5)); // true
+  console.log(Number.isInteger(2.5)); // false
+
+  // 7. 去掉小数部分
+  console.log(Math.trunc(8.9999)); // 8
+
+  // 判断正数负数和0: 正数1，负数 -1， 0： 0
+  console.log(Math.sign(-89898)); // -1
+  console.log(Math.sign(0)); // 0
+  console.log(Math.sign(19999)); // 1
+</script>
+</body>
+</html>

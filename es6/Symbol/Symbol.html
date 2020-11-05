@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // 第七种数据类型，表示独一无二的值，
+    // 可以用来解决命名冲突的问题
+    // Symbol 不能与其他属性的值就行运算（加减乘除）
+    // Symbol 定义的对象属性不能用 for … in 循环遍历，遍历用：Reflect.ownKeys来获得对象的键名
+
+    // 创建 Symbol
+    let s = Symbol();
+    console.log(s, typeof s); // Symbol() "symbol"
+
+    let s2 = Symbol('sera');
+    let s3 = Symbol('sera');
+
+    console.log(s3); // Symbol(sera)
+    console.log(s3 === s2); // false
+
+    let s4 = Symbol.for('noJack');
+    let s5 = Symbol.for('noJack');
+    console.log(s4); // Symbol(noJack)
+    console.log(s4 === s5); // true
+
+    // let res = s + 100; // 报错
+    // let res = s + s; // 报错
+
+    /**
+     * 字符串类型
+     * undefined
+     * null
+     * boolean
+     * string
+     * number
+     * object
+     * Symbol
+     * bigInt
+     */
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 向对象中添加独一无二的方法
+  let game = {
+    up: {},
+    down: {}
+  }
+  // 声明一个对象
+  let methods = {
+    up: Symbol(),
+    down: Symbol()
+  }
+
+  // 扩展方法
+  game[methods.up] = function () {
+    console.log('i can change up');
+  }
+  game[methods.down] = function () {
+    console.log('i can change down');
+  }
+
+  // let 游戏
+  let youxi = {
+    name: "狼人杀",
+    [Symbol('say')]: function () {
+      console.log('我可以发言');
+    },
+    [Symbol('zibao')]: function () {
+      console.log('我可以自爆');
+    }
+  }
+  console.log(youxi);
+</script>
+</body>
+</html>

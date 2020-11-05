@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // async 与 await 结合 可以让异步代码像同步代码一样
+  /**
+   * 解决异步：
+   * 1. 生成器函数
+   * 2. promise
+   * 3. async await
+   */
+
+  /**
+   * async 函数
+   * 1. async 函数的返回结果是一个 promise对象 ======= 可以 .then 链式调用
+   * 2. promise对象的结果由 async 函数执行的返回值决定
+   *    (只要返回的不是一个promise对象，则结果就是一个成功的promise对象
+   */
+
+  /**
+   * await 表达式
+   * 1. await 必须 写在 async 函数中
+   * 2. 右侧可以是一个表达式，一般是一个 promise对象
+   * 3. await 返回的是 promise 成功的值
+   * 4. await 的 promise 失败了就会抛出异常，需要 try...catch 捕获异常
+   */
+
+  async function f() {
+    // return 'sera'
+    /**
+     * Promise
+     __proto__: Promise
+     [[PromiseState]]: "fulfilled"
+     [[PromiseResult]]: "sera"
+     */
+    // return;
+    /**
+     * __proto__: Promise
+     [[PromiseState]]: "fulfilled"
+     [[PromiseResult]]: undefined
+     */
+    // throw new Error('出错啦');
+    // 一个失败的promise
+    /**
+     * __proto__: Promise
+     [[PromiseState]]: "rejected"
+     [[PromiseResult]]: Error: 出错啦 at
+     */
+    return new Promise((resolve, reject) => {
+      resolve('成功的数据');
+
+      /**
+       * __proto__: Promise
+       [[PromiseState]]: "fulfilled"
+       [[PromiseResult]]: "成功的数据"
+       */
+    })
+  }
+
+  const result = f();
+  console.log(result);
+
+  result.then(value => {
+    console.log(value); // 成功的数据
+  }).catch(err => {
+    console.log(err);
+  })
+
+
+  let pp = new Promise((resolve, reject) => {
+    // resolve('成功了')
+    reject('失败了')
+  })
+  async function main() {
+    try {
+      let result = await pp; // 得到成功的值
+      console.log(result);
+    } catch (e) {
+      console.log(e); // 失败了
+    }
+  }
+
+  main() // 成功了
+</script>
+</body>
+</html>

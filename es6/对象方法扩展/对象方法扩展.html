@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // Object.is 判断两个值是否完全相等
+  console.log(Object.is(120, 222)); // false
+  console.log(Object.is(120, 120)); // true
+
+  console.log(Object.is(NaN, NaN)); // true
+  console.log(NaN === NaN); // false
+  // Object.assign()  对象的合并
+  const config1 = {
+    host: 'localhost',
+    port: 3306,
+    name: 'root',
+    password: 'root'
+  }
+  const config2 = {
+    host: 'https://api.com/tets',
+    port: 33060,
+    name: 'sera',
+    password: 'love'
+  }
+
+  console.log(Object.assign(config1, config2)); // 数组的合并或（后者覆盖前者）
+  // Object.setPrototypeOf （设置原型对象）与 Object.getPrototypeOf
+  const school = {
+    name: 'sera'
+  }
+  const letter = {
+    letters: ['s', 'e', 'r', 'a']
+  }
+
+  // 不建议，效率低
+  Object.setPrototypeOf(school, letter)
+  console.log(school); // school.__proto__.letter === letter, letter变成了school的原型
+  console.log(Object.getPrototypeOf(school))
+</script>
+</body>
+</html>

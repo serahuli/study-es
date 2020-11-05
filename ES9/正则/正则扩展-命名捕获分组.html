@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 声明一个字符串
+  let str = '<a href="http://www.aiguigu.com">尚硅谷</a>'
+
+  // 提取 url 与 标签文本
+  // 以前的方式
+  // const reg = /<a href="(.*)">(.*)<\/a>/;
+  //
+  // const result = reg.exec(str)
+  // console.log(result);
+
+  /**
+   * 0: "<a href="http://www.aiguigu.com">尚硅谷</a>"
+   1: "http://www.aiguigu.com"
+   2: "尚硅谷"
+   */
+
+  // 现在
+  const reg = /<a href="(?<url>.*)">(?<text>.*)<\/a>/;
+  const result = reg.exec(str)
+  console.log(result);
+  /**
+   * : "<a href="http://www.aiguigu.com">尚硅谷</a>"
+   1: "http://www.aiguigu.com"
+   2: "尚硅谷"
+   groups:
+   text: "尚硅谷"
+   url: "http://www.aiguigu.com"
+   index: 0
+   */
+
+  console.log(result.groups.text) // 尚硅谷
+</script>
+</body>
+</html>

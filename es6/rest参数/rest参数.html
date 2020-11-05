@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function data(...args){
+      console.log(args)
+    }
+    data('a', 'b', 'c')
+
+    // rest参数必须放到最后
+    function data1(a, b, ...args){
+      console.log(args)
+    }
+  </script>
+</body>
+</html>

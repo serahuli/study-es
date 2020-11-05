@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 新的数据结构 === 类似于对象，也是键值对的集合，但是键的范围不限于字符串，
+  // 各种类型的值 包括对象，都可以当做键。
+  // 实现了 iterator 接口，所以可以用扩展运算符... 与 for of 遍历
+
+  /**
+   * 集合的属性和方法
+   * size: 返回元素个数
+   * set: 增加(改变)一个新元素，返回当前Map
+   * get: 返回键名对象的键值
+   * delete: 删除元素，返回 boolean
+   * has: 检测Map中是否包含某个元素，返回 boolean
+   * clear: 清空, 返回 undefined
+   */
+
+  // 声明
+  let m = new Map();
+  m.set('name', '尚硅谷');
+  m.set('change', function () {
+    console.log('we can change you');
+  })
+  console.log(m);
+  /**
+   * Map(2)
+   [[Entries]]
+   0: {"name" => "尚硅谷"}
+   1: {"change" => function () { console.log('we can change you'); }}
+   size: (...)
+   __proto__: Map
+   */
+
+  let key = {
+    school: 'sera'
+  }
+  m.set(key, ['s', 'e', 'r', 'a'])
+  console.log(m);
+  /**
+   * 0: {"name" => "尚硅谷"}
+   key: "name"
+   value: "尚硅谷"
+   1: {"change" => function () { console.log('we can change you'); }}
+   key: "change"
+   value: ƒ ()
+   2: {Object => Array(4)}
+   key: {school: "sera"}
+   value: (4) ["s", "e", "r", "a"]
+   */
+
+  console.log(m.size); // 3
+  m.delete('name');
+  console.log(m.size); // 2
+  console.log(m.get('change'));
+  /**
+   * ƒ () {
+    console.log('we can change you');
+  }
+   */
+  console.log(m.get(key)); //  ["s", "e", "r", "a"];
+
+  for(let v of m) {
+    console.log(v);
+  }
+
+  m.clear()
+  console.log(m); // Map(0) {}
+
+</script>
+</body>
+</html>

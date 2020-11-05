@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // catch 就是捕获 then 的第二个参数
+  const p = new Promise((resolve, reject) => {
+    reject('err')
+  })
+  p.catch(reason => {
+    console.warn(reason)
+  })
+</script>
+</body>
+</html>

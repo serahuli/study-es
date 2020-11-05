@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // get and set
+  class Phone {
+    get price() {
+      // 通常对对象的动态属性做封装，动态出结果
+      console.log('价格属性被读取');
+      return '000'
+    }
+    set price(x) {
+      // 判断设置的值是否合法等
+      console.log('价格属性被设置');
+    }
+  }
+
+  // 实例化对象
+  let s = new Phone();
+
+  console.log(s.price)
+  s.price = 'free'
+  console.log(s.price)
+</script>
+</body>
+</html>

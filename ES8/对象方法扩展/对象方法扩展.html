@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+
+  // Object.keys
+  // Object.values
+  // Object.entries
+  // Object.getOwnPropertyDescriptors
+  const school = {
+    name: '尚硅谷',
+    cities: ['北京', '上海', '深圳'],
+    xueke: ['前端', 'java']
+  }
+
+  console.log(Object.keys(school));
+  console.log(Object.values(school));
+  console.log(Object.entries(school));
+
+  // 通过键名可以创建一个 Map
+  const m = new Map(Object.entries(school))
+  console.log(m);
+  console.log(m.get('cities'));
+
+  // 对象属性的描述对象
+  console.log(Object.getOwnPropertyDescriptors(school))
+  /**
+   *
+   cities:
+   configurable: true
+   enumerable: true
+   value: (3) ["北京", "上海", "深圳"]
+   writable: true
+   __proto__: Object
+   name:
+   configurable: true
+   enumerable: true
+   value: "尚硅谷"
+   writable: true
+   __proto__: Object
+   xueke:
+   configurable: true
+   enumerable: true
+   value: (2) ["前端", "java"]
+   writable: true
+   __proto__: Object
+   __proto__: Object
+   */
+
+  const obj = Object.create(null, {
+    name: {
+      value: '尚硅谷',
+      writable: true,
+      configurable: true,
+      enumerable: true
+    }
+  })
+</script>
+</body>
+</html>

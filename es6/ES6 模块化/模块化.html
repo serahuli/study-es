@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script type="module">
+  // 模块化 === 将大的程序文件拆分成许多小的文件，然后将小文件组合起来
+
+  /**
+   * 好处：
+   * 防止命名冲突
+   * 代码复用
+   * 高维护性
+   */
+
+  /**
+   * 模块化产品
+   * CommonJS => NodeJS, Browserify
+   * AMD => requireJS
+   * CMD => seaJS
+   */
+
+  /**
+   * 语法
+   * 主要的两个命令
+   * export: 规定模块的对外接口
+   * import: 输入其他模块输入的功能
+   */
+
+  // 引入 m1.js
+  // import * as m1 from './m1.js';
+  // import * as m2 from './m2.js';
+  // import * as m3 from './m3.js';
+  //
+  // console.log(m1);
+  // m1.say() // i can say
+  /**
+   * Module
+   say: (...)
+   school: (...)
+   */
+  // console.log(m2);
+  // m2.say() // i can say
+  /**
+   * Module
+   say: (...)
+   school: (...)
+   */
+  // console.log(m3);
+  /**
+   * default: Object
+   say: ƒ ()
+   school: "sera"
+   */
+  // 调用时需要先.default
+  // m3.default.say() // i can say
+
+
+  /**
+   * 引入：
+   * 1. 通用: import * as m3 from './m3.js';
+   *
+   * 2. 解构赋值：import { school, say } from './m1.js' ,,,,
+   *    可以直接使用，say()
+   *    console.log(school)
+   *
+   * 3. 别名： import { school as school1, say as say1} from './m1.js'
+   *    可以直接使用，say1()
+   *    console.log(school1)
+   *
+   * 4. import { default as m3 } from './m3.js'
+   *    console.log(m3) // say: ƒ () , school: "sera"
+   *
+   * 5. 针对默认暴露 === 简便形式
+   *    import m3 from "./m3.js"
+   *    console.log(m3)  // say: ƒ () , school: "sera"
+   */
+
+
+
+</script>
+<!--// 一起引入-->
+<script src="app.js" type="module"></script>
+</body>
+</html>

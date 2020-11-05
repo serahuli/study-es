@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    // ES6运行按照一定模式从数值或者对象提取值
+
+    // === 数组
+    const ABC_FAMILY = ['A', 'B', 'C'];
+    let [a, b, c] = ABC_FAMILY;
+    console.log(a) // A
+    console.log(b) // B
+    console.log(c) // C
+
+    // === 对象
+    const ABC_FAMILY2 = {
+      family: 'abc',
+      count: '2',
+      action: function() {
+        console.log('we love singing!')
+      }
+    }
+
+    let { family, count, action } = ABC_FAMILY2;
+    action() // we love singing!
+  </script>
+</body>
+</html>

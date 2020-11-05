@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6对象简化写法</title>
+</head>
+<body>
+  <script>
+    let name = 'sera';
+    let gender = '女';
+    let job = function() { console.log('我是一个前端工程师。。。。。。吧') };
+    // 简单写法
+    const PEOPLE = {
+      name, gender, job
+    }
+    PEOPLE.job() // 我是一个前端工程师。。。。。。吧
+
+    // 函数的简单写法
+    function getJob() {
+      console.log('我才是一个与时俱进的前端工程师。')
+    }
+    getJob() // 我才是一个与时俱进的前端工程师
+  </script>
+</body>
+</html>

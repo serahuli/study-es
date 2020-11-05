@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>箭头函数</title>
+</head>
+<body>
+  <script>
+    // ES5 
+    let abc = function(a, b ,c) {}
+
+    // ES6
+    let cde = (c, d, e) => {}
+    // 一个参数可以省略括号
+    let f = f => {}
+
+    // 特性
+    // 1. this 是静态的, 始终指向函数声明时所在的作用域下 this 的值
+
+    function getName () {
+      console.log(this.name)
+    }
+
+    let getName2 = () => {
+      console.log(this.name)
+    }
+    window.name = '全局name';
+    const my = {
+      name: '局部name'
+    }
+
+    getName() // 全局name
+    getName2() // 全局name
+    getName.call(my) // 局部name
+    getName2.call(my) // 全局name
+
+    // 2. 不能作为构造函数去实例化对象
+
+    // 3. 不能使用 arguments 变量
+
+    // 4. 简写：
+    //   4.1 一个参数可以省略括号
+    //   4.2 当函数体只有一条语句，可以省略花括号，省略花括号之后， return 必须省略，会直接返回执行结果
+    const getCount = n => n * n;
+    console.log(getCount(9))
+
+
+    // 箭头函数适合与 this 无关的回调，  比如定时器，数组的方法回调。
+    //  箭头函数不适合与 this 有关的回调 ， 比如：事件回调和对象方法。
+  </script>
+</body>
+</html>

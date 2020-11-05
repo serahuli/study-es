@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // 生成器是一种特殊的函数，用来解决异步编程的方案
+  // 异步编程 之前是使用纯回调函数解决的 node fs ajax mongodb
+
+  // 声明
+  function * gen() {
+    console.log('我是生成器');  // 直接执行的话，这行代码是不会被执行的
+  }
+
+  // 执行
+  let iterator = gen();
+  console.log(iterator);
+  /**
+   * gen
+   __proto__: Generator
+   [[GeneratorLocation]]: 生成器.html?_ijt=1fc90p…d4hkjaf6gckofmuv:13
+   [[GeneratorState]]: "suspended"
+   [[GeneratorFunction]]: ƒ * gen()
+   [[GeneratorReceiver]]: Window
+   [[Scopes]]: Scopes[3]
+   */
+
+  // 执行
+  iterator.next();   // 我是生成器
+
+  // 生成器函数可以出现 yield 标识符
+  // yield 后面跟表达式或者函数
+  // yield可以算成是函数代码的分隔符
+  // 三个  yield 产生四块分隔块
+  // 通过 next 执行
+
+  function * gen1() {
+    console.log('000');
+    yield '一只没有耳朵的狐狸'
+    console.log('111');
+    yield '一只没有尾巴的狐狸'
+    console.log('222');
+    yield '还是狐狸吗'
+    console.log('333');
+  }
+
+  let iterator1 = gen1();
+  iterator1.next(); // 000
+  iterator1.next(); // 111
+  iterator1.next(); // 222
+  iterator1.next(); // 333
+  iterator1.next(); // 无输出
+
+  function * gen2() {
+    yield '一只没有耳朵的狐狸'
+    yield '一只没有尾巴的狐狸'
+    yield '还是狐狸吗'
+  }
+
+  let iterator2 = gen2();
+  console.log(iterator2.next()); // {value: "一只没有耳朵的狐狸", done: false}
+  console.log(iterator2.next()); // {value: "一只没有尾巴的狐狸", done: false}
+  console.log(iterator2.next()); // {value: "还是狐狸吗", done: false}
+  console.log(iterator2.next()); // {value: undefined, done: true}
+  console.log(iterator2.next()); // {value: undefined, done: true}
+
+  for(let v of gen2()) {
+    console.log(v);
+    /**
+     * 一只没有耳朵的狐狸
+     * 一只没有尾巴的狐狸
+     * 还是狐狸吗
+     */
+  }
+</script>
+</body>
+</html>

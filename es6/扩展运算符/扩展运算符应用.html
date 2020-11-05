@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+  <script>
+    // 1. 数组的合并
+    const ABC_FAMILY = ['A', 'B', 'C'];
+    const DEF_FAMILY = ['D', 'E', 'F'];
+
+    // ES5
+    console.log(ABC_FAMILY.concat(DEF_FAMILY))
+
+    // ES6
+    console.log(...ABC_FAMILY, ...DEF_FAMILY)
+
+    // 2. 数组的克隆
+    const GH_FAMILY = ['G', 'H'];
+    const GH_COPY = [...GH_FAMILY];
+    console.log(GH_FAMILY);
+
+    // 3. 将伪数组换成真数组
+    const divs = document.getElementsByTagName('div');
+    console.log(divs)  // object
+    const divArr = [...divs]
+    console.log(divArr)  // Array
+  </script>
+</body>
+</html>

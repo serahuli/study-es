@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // // 1. 创建对象
+  // const xhr = new XMLHttpRequest();
+  //
+  // // 2. 初始化
+  // xhr.open("GET", "https://api.apiopen.top/getToken");
+  //
+  // // 3. 发送请求
+  // xhr.send();
+  //
+  // // 4. 绑定事件处理响应结果
+  // xhr.onreadystatechange = function () {
+  //   // 判断
+  //   if(xhr.readyState === 4) {
+  //     // 判断响应码
+  //     if(xhr.status >= 200 && xhr.status < 200) {
+  //       console.log(xhr.response);
+  //     } else {
+  //       console.error(xhr.status)
+  //     }
+  //   }
+  // }
+
+
+  const p = new Promise(((resolve, reject) => {
+    // 1. 创建对象
+    const xhr = new XMLHttpRequest();
+
+    // 2. 初始化
+    xhr.open("GET", "https://api.apiopen.top/getToken");
+
+    // 3. 发送请求
+    xhr.send();
+
+    // 4. 绑定事件处理响应结果
+    xhr.onreadystatechange = function () {
+      // 判断
+      if(xhr.readyState === 4) {
+        // 判断响应码
+        if(xhr.status >= 200 && xhr.status < 200) {
+          // console.log(xhr.response);
+          resolve(xhr.response)
+        } else {
+          // console.error(xhr.status)
+          reject(xhr.status)
+        }
+      }
+    }
+  }))
+
+  p.then(value => {
+    console.log(value);
+  }, err => {
+    console.log(err);
+  })
+</script>
+</body>
+</html>

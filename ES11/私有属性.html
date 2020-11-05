@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  class Person {
+    // 共有属性
+    name;
+    // 私有属性  #
+    #age;
+    #weight;
+    constructor(name, age, weight) {
+      this.name = name;
+      this.#age = age;
+      this.#weight = weight;
+    }
+
+    // 内部访问
+    intro() {
+      console.log(this.#age)
+    }
+  }
+
+  // 实例化
+  const girl = new Person('ss', 18, 40)
+  console.log(girl);
+  /**
+   * name: "ss"
+   #age: 18
+   #weight: 40
+   */
+  console.log(girl.name); // ss
+  console.log(girl.age); //  undefined
+  console.log(girl.weight); // undefined
+  // console.log(girl.#age); //  Private field '#age' must be declared in an enclosing class
+  // console.log(girl.#weight); // Private field '#weight' must be declared in an enclosing class
+  girl.intro() // 18
+</script>
+</body>
+</html>

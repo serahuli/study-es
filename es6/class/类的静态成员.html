@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // function Phone() {
+  //
+  // }
+  //
+  // Phone.name = '手机';
+  // Phone.change = function () {
+  //   console.log('code change the world');
+  // }
+  //
+  // let nokia = new Phone();
+  // console.log(nokia.name);
+  // undefined ====>  实例对象与函数对象的属性是不通的。 与函数对象的实例上的属性相通。
+
+  // Phone.name = '手机'; 或者Phone.change  属于函数对象，不是实例的 ，，也叫静态成员
+
+
+
+  class Phone{
+    // static 是声明静态成员的关键字
+    static name = '手机';
+    static change() {
+      console.log('code change');
+    }
+  }
+
+  let nokia = new Phone();
+  console.log(nokia.name); // undefined
+  console.log(Phone.name); // 手机
+</script>
+</body>
+</html>

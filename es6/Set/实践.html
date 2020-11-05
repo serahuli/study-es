@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  let arr = [1,2,3,2,43,35,2,4,2,3,1];
+  // 数组去重
+  console.log([...new Set(arr)]);
+  let arrC =Array.from(new Set(arr))
+  console.log(arrC);
+  // 交集
+  let arr2 = [4,5,2,5];
+  // let resultB = [...new Set(arr)].filter(item => {
+  //   let s2 = new Set(arr2);
+  //   if(s2.has(item)) return true
+  //   else return false
+  // })
+
+  // 简化
+  let resultB = [...new Set(arr)].filter(item => new Set(arr2).has(item))
+  console.log(resultB);
+  // 并集
+  let resultC = [...new Set([...arr, ...arr2])]
+  console.log(resultC);
+  // 差集
+  let diff = [...new Set(arr)].filter(item => !(new Set(arr2).has(item)))
+  console.log(diff);
+</script>
+</body>
+</html>
